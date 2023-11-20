@@ -8,6 +8,7 @@ export enum TokenType {
     Semicolon,
     Mutable,
     Immutable,
+    EOF, // End of file token
 }
 
 const KEYWORDS: Record<string, TokenType> = {
@@ -69,14 +70,16 @@ export const tokenize: Tokenize = (source_code) => {
         };
     };
 
+    tokens.push(token(TokenType.EOF));
+
     return tokens;
 };
 
 // MAIN FUNCTION
 (async function() {
     if (Deno.args.length < 1) {
-        console.log(`Usage: ./deno file_name.mgt`);
-        Deno.exit(1);
+        console.log(`Entered REPL mode.`);
+        return;
     };
 
     const source_code = await Deno.readTextFile(`./${Deno.args[0]}`);
