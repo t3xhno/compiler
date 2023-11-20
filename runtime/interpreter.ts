@@ -13,9 +13,7 @@ type EvalProgram = (program: Program) => RuntimeVal;
 const eval_program: EvalProgram = (program) => {
     let last_evaluated: RuntimeVal = { type: "null", value: "null" } as NullVal;
 
-    for (const statement of program.body) {
-        last_evaluated = evaluate(statement);
-    };
+    for (const statement of program.body) last_evaluated = evaluate(statement);
 
     return last_evaluated;
 };

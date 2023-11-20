@@ -2,7 +2,7 @@
 
 The compiler will consist of three main parts:
 - [x] The lexer 
-- [ ] The AST
+- [ ] The AST (in progress)
 - [ ] The code generator (NASM 64 bit)
 
 This compiler will only output the generated NASM 64 bit code. It will then use
