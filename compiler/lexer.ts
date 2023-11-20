@@ -1,6 +1,7 @@
 export enum TokenType {
     Number,
     Identifier,
+    Null,
     Equals,
     OpenParen,
     CloseParen,
@@ -14,6 +15,7 @@ export enum TokenType {
 const KEYWORDS: Record<string, TokenType> = {
     "mut": TokenType.Mutable,
     "immut": TokenType.Immutable,
+    "moralmidget": TokenType.Null,
 };
 
 export enum BinOp {

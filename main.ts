@@ -1,4 +1,5 @@
 import Parser from "./compiler/parser.ts";
+import { evaluate } from "./runtime/interpreter.ts";
 
 const repl = () => {
     const parser = new Parser();
@@ -9,7 +10,9 @@ const repl = () => {
         if (!input || input.includes("exit")) Deno.exit(1);
 
         const program = parser.produceAST(input);
-        console.dir(program, { depth: null });
+        // console.dir(program, { depth: null });
+        const result = evaluate(program);
+        console.log(result);
     };
 };
 
